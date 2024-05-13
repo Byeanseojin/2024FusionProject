@@ -99,6 +99,12 @@
     margin: 0 0 10px 20px;
     border-bottom: 1px solid #fff; /* 원하는 색상 및 두께로 조정하세요 */
 }
+hr{
+    border: none;
+    width: 80%;
+    margin: 0 0 10px 20px;
+    border-bottom: 1px solid #fff;
+}
 
 .mypageItem{
     display: inline-block;
