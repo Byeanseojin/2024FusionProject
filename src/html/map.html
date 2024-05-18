@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main {
+            width: 100%;
+            height: 100%;
+            background-color: grey;
+        }
+
+        .main-map-items {
+            display: block;
+            margin-right: 50px;
+            margin-top: 65px;
+            width: 30%;
+            height: 5vh;
+            float: right;
+        }
+
+        #main-map-item1 {
+            display: flex;
+            width: 31%;
+            margin-right: 5px;
+            height: auto;
+            float: left;
+            background-color: #bac6ff;
+        }
+
+        #main-map-item2 {
+            display: flex;
+            width: 31%;
+            margin-right: 5px;
+            height: auto;
+            float: left;
+            background-color: #bac6ff;
+        }
+
+        #main-map-item3 {
+            display: flex;
+            width: 31%;
+            height: auto;
+            float: left;
+            background-color: #bac6ff;
+        }
+
+        .main-search {
+            display: block;
+            margin-right: 50px;
+            margin-top: 65px;
+            width: 30%;
+            height: 80vh;
+            background-color: crimson;
+            float: right;
+        }
+        .map {
+            display: block;
+            margin-right: 50px;
+            /*margin-top: 100px;*/
+            width: 30%;
+            height: 60vh;
+            float: right;
+        }
+
+        /*mmm로고*/
+        .title {
+            display: flex;
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: aqua;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*사이드바*/
+        /* 사이드바 아이콘 스타일 */
+        .menu ::before {
+            font-family: 'Material Icons';
+            font-size: 1.5em;
+            float: left;
+            clear: left;
+        }
+
+        .menu label::before {
+            content: '\e5d2';
+        }
+
+        /* 체크박스 폼 요소 감춤 */
+        #expand-menu {
+            display: none;
+        }
+
+        /* 체크박스 체크 시 메뉴 목록 표시 */
+        #expand-menu:checked ~ ul { /* 체크박스 체크되었으면 메뉴 목록 표시 - 반응형 표시용 */
+            /*display: block;*/
+            height: auto;
+        }
+
+        /* 사이드바 스타일 */
+        .menu {
+            display: block;
+            width: 20%; /* 너비를 원하는 값으로 조절 */
+            background-color: #000;
+            color: #fff;
+            top: 65px;
+            border-radius: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: all 0.5s ease;
+            position: fixed;
+            background-color: black;
+            height: 80vh; /* 높이를 원하는 값으로 조절 */
+            bottom: 10px; /* 하단에서의 여백을 조절 */
+        }
+
+        /* 메뉴 항목 스타일 */
+        .menu ul > li > a {
+            display: block;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        /* 메뉴 타이틀 스타일 */
+        .menu-title {
+            display: block;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+        }
+
+        /* 메뉴 목록 스타일 */
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 메뉴 항목 및 레이블 스타일 */
+        .menu a, .menu > label {
+            display: block;
+            height: 25px;
+            padding: 8px;
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* 메뉴 항목 호버 스타일 */
+        .menu a:hover {
+            color: #000;
+        }
+
+        .menu ul li:hover, .menu > label:hover {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+        }
+
+        /* 메뉴 항목 텍스트 위치 */
+        .menu div {
+            position: absolute;
+            left: 50px;
+            line-height: 1.5;
+            font-size: 1em;
+            font-family: 'Noto Sans KR';
+            padding: 0 0 0 20px;
+        }
+
+        /* 서브 메뉴 스타일 */
+        .menu ul ul {
+            padding-top: 40px;
+            background-color: #000;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .menu ul ul li {
+            margin: 0px;
+            width: 0%;
+            font-family: 'Material Icons';
+            font-size: 0.1em;
+
+        }
+
+        /* 서브 메뉴 항목 스타일 */
+        .menu ul ul li a {
+            padding: 0px 0px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* 서브 메뉴 항목 호버 스타일 */
+        .menu ul ul li a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .instaImg {
+            margin-top: 25px;
+        }
+
+        @media screen and (max-width: 512px) {
+            .menu { /* Styles for screens with width up to 512px */
+                width: 60px; /* 사이드바 가로 길이를 60px로 조정 */
+            }
+
+            .menu ul { /* Hide the menu items */
+                display: none;
+            }
+
+            .menu label::before { /* Show menu icon */
+                display: block;
+            }
+
+            #expand-menu:checked ~ ul { /* Show menu items when checkbox is checked */
+                display: block;
+                height: auto;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .menu { /* Styles for screens with width 1024px and above */
+                width: 200px; /* Adjust width as needed */
+            }
+
+            .menu ul { /* Show menu items */
+                display: block;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="title">
+    <h2>MMM</h2>
+</div>
+<div class="main">
+    <!--사이드바-->
+    <div class="menu">
+        <label for="expand-menu">
+            <div>메뉴</div>
+        </label>
+        <input type="checkbox" id="expand-menu" name="expand-menu">
+        <ul>
+            <li><a href="#" class="item">
+                <div>인기키워드</div>
+            </a></li>
+            <li><a href="#" class="item">
+                <div>인기 Top 코스</div>
+            </a></li>
+            <li><a href="#" class="item">
+                <div>Best맛집</div>
+            </a></li>
+            <li><a href="#" class="item">
+                <div>커뮤니티</div>
+            </a></li>
+            <li><a href="#" class="item">
+                <div>후기글 모음</div>
+            </a></li>
+            <li><a href="#" class="item">
+                <div>FAQ</div>
+            </a></li>
+            <li>
+                <div class="menu-title">마이페이지</div>
+                <ul>
+                    <li><a href="#" class="item2">
+                        <div>개인정보 수정</div>
+                    </a></li>
+                    <li><a href="#" class="item2">
+                        <div>찜코스</div>
+                    </a></li>
+                    <li><a href="#" class="item2">
+                        <div>커뮤니티</div>
+                    </a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-title">인스타추천</div>
+            </li>
+            <li>
+                <div class="instaImg"><img src="../imgs/instagram.png " width="30" height="30"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="main-search">
+    </div>
+    <div class="main-map-items">
+        <div id="main-map-item1">구까지 입력</div>
+        <div id="main-map-item2">검색</div>
+        <div id="main-map-item3">구군</div>
+    </div>
+    <div class = "map" id="map">
+    </div>
+    <input type="text" id="searchInput" placeholder="구 이름 입력">
+    <button onclick="searchAndShow()">검색</button>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9cbf5990fedd620733bc2f5c173f35fb"></script>
+    <script>
+        // 스크립트가 로드된 후에 실행되도록 window.onload 이벤트에 함수를 할당합니다.
+        window.onload = function () {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+
+            var map = new kakao.maps.Map(container, options);
+        };
+    </script>
+</div>
+
+</body>
+</html>
