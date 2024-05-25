@@ -26,6 +26,10 @@ body {
     z-index: 1001; /* 다른 요소보다 위에 나타나도록 설정 */
     border-radius: 5px;
 }
+.btn-primary{
+    background-color: #bbb4ff;
+    border: none;
+}
 
 .logo img {
     width: 100px; /* 로고 이미지 너비 조절 */
