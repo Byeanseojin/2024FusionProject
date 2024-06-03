@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <link rel="stylesheet"  href="../css/main.css">
     <!-- 부트스트랩 CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -47,6 +48,38 @@
 <body>
 <div class="container">
     <div class="row">
+        <div class="col-md-3">
+            <!-- 로고 이미지 추가 -->
+            <div class="logo">
+                <img src="../imgs/mmm_logo2.png" alt="MMM">
+            </div>
+        </div>
+    </div>
+    <!-- 사이드바 -->
+    <div id="sidebar" class="col-lg-5 sidebar">
+        <span id="login"><a href="#" class="login">로그인</a></span>
+        <span id="join"><a href="#" class="join">회원가입</a></span>
+        <ul id="ul1">
+            <li><a href="#" class="item"><div>인기키워드</div></a></li>
+            <li><a href="#" class="item"><div>인기 Top 코스</div></a></li>
+            <li><a href="#" class="item"><div>Best맛집</div></a></li>
+            <li><a href="#" class="item"><div>커뮤니티</div></a></li>
+            <li><a href="#" class="item"><div>후기글 모음</div></a></li>
+            <li><a href="#" class="item"><div>FAQ</div></a></li>
+            <hr class="sidebar-hr">
+            <li><div class="sidebar-mypage">마이페이지</div>
+                <ul id="ul2">
+                    <li><a href="#" class="item2"><div class="mypageItem">개인정보 수정</div></a></li>
+                    <li><a href="#" class="item2"><div class="mypageItem">찜코스</div></a></li>
+                    <li><a href="#" class="item2"><div class="mypageItem">커뮤니티</div></a></li>
+                </ul>
+            </li>
+            <hr class="sidebar-hr">
+            <li><div class="sidebar-insta">인스타추천</div></li>
+            <li><div class="instaImg"><img src="../imgs/instagram.png " width="30" height="30"></div></li>
+        </ul>
+    </div>
+    <div class="row">
         <div class="col-md-6 login-container">
             <h2 class="text-center mb-4">로그인</h2>
             <form>
@@ -75,6 +108,10 @@
         </div>
     </div>
 </div>
+<div class="menu-toggle">&#9776;</div>
+</div>
+<script src="../js/main.js"></script>
+<script src="../js/toggle.js"></script>
 <!-- 부트스트랩 JS 및 jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -42,19 +42,29 @@
             margin-left: 10px;
             color: #888;
         }
-
+        .commuity-pagination {
+            float: right;
+            margin-right: 25%;
+            margin-top: 10px;
+        }
         .pagination-button {
-            background-color: #bbb4ff;
+            background-color: #bbb4ff; /* 기본 배경색 */
+            width: auto;
             border: none;
-            color: #fff;
+            color: #fff; /* 텍스트 색상 */
             padding: 8px 16px;
             cursor: pointer;
             border-radius: 4px;
             margin-right: 5px;
+            transition: background-color 0.3s; /* 색상 변경 애니메이션 */
+        }
+
+        .pagination-button:hover {
+            background-color: #9a91ff; /* 호버 시 배경색 */
         }
 
         .pagination-button.active {
-            background-color: #6a5acd;
+            background-color: #6a5acd; /* 활성화된 버튼 배경색 */
         }
     </style>
 </head>
@@ -106,25 +116,22 @@
                     <div class="post-title">인기글 제목 2</div>
                     <div class="post-comments">댓글 15</div>
                 </div>
-                <!-- 추가적인 인기글은 여기에 추가 -->
             </div>
         </div>
-
         <!-- 최신글 섹션 -->
         <div class="community-section">
             <h3>최신글</h3>
             <div class="posts" id="latest-posts">
                 <!-- 최신글 목록 -->
             </div>
-            <div id="pagination" class="pagination">
+            <div id="pagination" class="commuity-pagination">
                 <!-- 페이징 버튼 -->
             </div>
         </div>
     </div>
+    //토글버튼
     <div class="menu-toggle">&#9776;</div>
 </div>
-</body>
-<script src="../js/main.js"></script>
 <script>
     const postsPerPage = 5; // 페이지당 보여줄 최신글 수
     const latestPostsContainer = document.getElementById('latest-posts');
@@ -197,8 +204,10 @@
         });
         return button;
     }
-
     // 초기 최신글 목록 렌더링 (첫 페이지)
     renderLatestPosts(1);
 </script>
+<script src="../js/main.js"></script>
+<script src="../js/toggle.js"></script>
+</body>
 </html>
